@@ -1,4 +1,4 @@
-$.continuousCalendar = {};$.continuousCalendar.version = '2.2.2';$.continuousCalendar.released = '2012-11-05'
+$.continuousCalendar = {};$.continuousCalendar.version = '';$.continuousCalendar.released = '2012-11-25'
 /* ==============================================================================
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -344,7 +344,7 @@ $.continuousCalendar = {};$.continuousCalendar.version = '2.2.2';$.continuousCal
     id: 'ET',
     monthNames: [ 'Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni', 'Juuli', 'August', 'September', 'Oktoober', 'November', 'Detsember'],
     dayNames: ['Pühapäev', 'Esmaspäev', 'Teisipäev', 'Kolmapäev', 'Neljapäev', 'Reede', 'Laupäev'],
-    shortDayNames: ['P', 'E', 'T', 'K', 'N', 'R', 'L'],
+    shortDayNames: ['Pü', 'Es', 'Te', 'Ko', 'Ne', 'Re', 'La'],
     yearsLabel: function(years) { return years + ' ' + (years == '1' ? 'Aasta' : 'Aastat') },
     monthsLabel: function(months) { return months + ' ' + (months == '1' ? 'Kuu' : 'Kuud') },
     daysLabel: function(days) { return days + ' ' + (days == '1' ? 'Päev' : 'Päeva') },
@@ -381,6 +381,28 @@ $.continuousCalendar = {};$.continuousCalendar.version = '2.2.2';$.continuousCal
       return DateLocale.getFirstDateOfWeek(dateTime, DateLocale.MONDAY)
     }
   }
+
+  DateLocale.SE = {
+    id: 'SE',
+    monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
+    dayNames: [' Söndag', 'Måndag', ' Tisdag', ' Onsdag', ' Torsdag', ' Fredag', ' Lördag'],
+    shortDayNames: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
+    yearsLabel: function(years) { return years + ' ' + (years == '1' ? 'År' : 'År'); },
+    monthsLabel: function(months) { return months + ' ' + (months == '1' ? 'Månad' : 'Månader') },
+    daysLabel: function(days) { return days + ' ' + (days == '1' ? 'Dag' : 'Dagar') },
+    hoursLabel: function(hours, minutes) {
+      var hoursAndMinutes = DateLocale.hoursAndMinutes(hours, minutes)
+      return hoursAndMinutes + ' ' + (hoursAndMinutes == '1' ? 'Timme' : 'Timmar')
+    },
+    shortDateFormat: 'n/j/Y',
+    weekDateFormat: 'D n/j/Y',
+    dateTimeFormat: 'D n/j/Y G:i',
+   firstWeekday: DateLocale.MONDAY,
+    getFirstDateOfWeek: function(dateTime) {
+      return DateLocale.getFirstDateOfWeek(dateTime, DateLocale.MONDAY)
+    }
+  }
+
   DateLocale.DEFAULT = DateLocale.EN
 
   DateLocale.getFirstDateOfWeek = function(dateTime, firstWeekday) {

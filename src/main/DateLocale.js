@@ -129,6 +129,28 @@
       return DateLocale.getFirstDateOfWeek(dateTime, DateLocale.MONDAY)
     }
   }
+
+  DateLocale.SE = {
+    id: 'SE',
+    monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
+    dayNames: [' Söndag', 'Måndag', ' Tisdag', ' Onsdag', ' Torsdag', ' Fredag', ' Lördag'],
+    shortDayNames: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
+    yearsLabel: function(years) { return years + ' ' + (years == '1' ? 'År' : 'År'); },
+    monthsLabel: function(months) { return months + ' ' + (months == '1' ? 'Månad' : 'Månader') },
+    daysLabel: function(days) { return days + ' ' + (days == '1' ? 'Dag' : 'Dagar') },
+    hoursLabel: function(hours, minutes) {
+      var hoursAndMinutes = DateLocale.hoursAndMinutes(hours, minutes)
+      return hoursAndMinutes + ' ' + (hoursAndMinutes == '1' ? 'Timme' : 'Timmar')
+    },
+    shortDateFormat: 'n/j/Y',
+    weekDateFormat: 'D n/j/Y',
+    dateTimeFormat: 'D n/j/Y G:i',
+   firstWeekday: DateLocale.MONDAY,
+    getFirstDateOfWeek: function(dateTime) {
+      return DateLocale.getFirstDateOfWeek(dateTime, DateLocale.MONDAY)
+    }
+  }
+
   DateLocale.DEFAULT = DateLocale.EN
 
   DateLocale.getFirstDateOfWeek = function(dateTime, firstWeekday) {
